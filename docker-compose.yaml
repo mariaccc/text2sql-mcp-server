@@ -1,0 +1,14 @@
+services:
+  api:
+    image: text2sql-mcp-server:1.0
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:mysql://127.0.0.1:3306/mysql?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true"
+      SPRING_DATASOURCE_USERNAME: "root"
+      SPRING_DATASOURCE_PASSWORD: "password"
+    volumes:
+      - ./logs:/app/logs
+    build:
+      context: .
+      dockerfile: Dockerfile

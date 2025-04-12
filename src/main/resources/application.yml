@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: text2sql-mcp-server
+  threads:
+    virtual:
+      enabled: true
+  main:
+    keep-alive: true
+    banner-mode: off
+  ai:
+    mcp:
+      server:
+        stdio: false
+        sse-message-endpoint: /sse
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://127.0.0.1:3306/mysql?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:password}
+    hikari:
+      max-lifetime: 30000
+      maximum-pool-size: 50
+      minimum-idle: 10
+
+
+logging:
+  pattern:
+    console:
+  file:
+    name: ./logs/${spring.application.name}.log
+
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true

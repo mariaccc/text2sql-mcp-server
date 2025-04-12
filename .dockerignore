@@ -1,0 +1,8 @@
+logs/
+.git/
+.idea/
+*.http
+*.log
+*.json
+*.md
+*.tar
